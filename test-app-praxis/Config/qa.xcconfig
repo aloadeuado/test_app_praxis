@@ -1,0 +1,13 @@
+//
+//  qa.xcconfig
+//  test_exalt
+//
+//  Created by iMac on 9/02/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+API_KEY = cf258ecd5d9e4f019d9de2ffe169ebb3
+BASE_UREL = https:/$()/api.spoonacular.com
+URL_LIST_RECIPES = https:/$()/api.spoonacular.com/recipes/search?apiKey=cf258ecd5d9e4f019d9de2ffe169ebb3&query=&{text}&offset=&{offset}&number=&{number}
+URL_DETAIL_RECIPES = https:/$()/api.spoonacular.com/recipes/&{idRecipe}/information?apiKey=cf258ecd5d9e4f019d9de2ffe169ebb3&includeNutrition=true.
