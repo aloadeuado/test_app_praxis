@@ -19,6 +19,9 @@ func getStringOfInfo(key:String) -> String{
      
 }
 
+func getListUsers() -> String {
+    return getStringOfInfo(key: "BASE_UREL") + "/users"
+}
 func getListRecipesUrl() -> String {
     return getStringOfInfo(key: "URL_LIST_RECIPES")
 }

@@ -30,5 +30,9 @@
             </array>
         </dict>
     </array>
+    <key>URL_DETAIL_RECIPES</key>
+    <string>$(URL_DETAIL_RECIPES)</string>
+    <key>URL_LIST_RECIPES</key>
+    <string>$(URL_LIST_RECIPES)</string>
 </dict>
 </plist>

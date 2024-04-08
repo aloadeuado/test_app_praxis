@@ -12,6 +12,7 @@ import GoogleSignIn
 
 class ViewController: UIViewController {
 
+    var userRepository: UserRepository?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,11 +22,25 @@ class ViewController: UIViewController {
         // Create Google Sign In configuration object.
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.configuration = config
+        userRepository = UserRepository(userRepositoryDelegate: self)
 
         // Start the sign in flow!
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+            if let user = user {
+                // El usuario está autenticado, `user` es un objeto `User` no `nil`
+                self?.userRepository?.getUser(email: user.email ?? "")
+            } else {
+                // No hay usuario autenticado
+                print("No hay usuario autenticado.")
+            }
+        }
+    }
     @IBAction func authPressed(button: UIButton) {
         
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] result, error in
@@ -43,14 +58,11 @@ class ViewController: UIViewController {
             
             let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                            accessToken: user.accessToken.tokenString)
-            Auth.auth().signIn(with: credential) { result, error in
+            Auth.auth().signIn(with: credential) { [weak self] result, error in
                 
                 let firebaseAuth = Auth.auth()
-                do {
-                  try firebaseAuth.signOut()
-                } catch let signOutError as NSError {
-                  print("Error signing out: %@", signOutError)
-                }
+                self?.userRepository?.getUser(email: firebaseAuth.currentUser?.email ?? "")
+                
             }
         }
         
@@ -58,3 +70,16 @@ class ViewController: UIViewController {
 
 }
 
+//MARK: -UserRepositoryDelegate
+
+extension ViewController: UserRepositoryDelegate {
+    func onSuccess(userData: UserData) {
+        <#code#>
+    }
+    
+    func onError(error: String) {
+        <#code#>
+    }
+    
+    
+}
