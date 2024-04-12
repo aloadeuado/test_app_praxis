@@ -22,14 +22,11 @@ func getStringOfInfo(key:String) -> String{
 func getListUsers() -> String {
     return getStringOfInfo(key: "BASE_UREL") + "/users"
 }
-func getListRecipesUrl() -> String {
-    return getStringOfInfo(key: "URL_LIST_RECIPES")
+
+func getListPhotosByUsers(userId: String) -> String {
+    return getStringOfInfo(key: "BASE_UREL") + "/photos?albumId=" + userId
 }
 
-func getDetailRecipesUrl() -> String {
-    return getStringOfInfo(key: "URL_DETAIL_RECIPES")
-}
-
-func getUrlApod() -> String {
-    return "https://api.nasa.gov/planetary/apod" + "?api_key=" + "m9loOd79vKI0ArBwtmhX2gOGRQbIMi7vNttpIzaR&date={date}"
+func getListPostsByUsers(userId: String) -> String {
+    return getStringOfInfo(key: "BASE_UREL") + "/posts?userId=" + userId
 }

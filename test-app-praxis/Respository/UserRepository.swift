@@ -21,6 +21,7 @@ class UserRepository {
         ApiServices().requestHttpwithUrl(EpUrl: getListUsers(), method: .get, withData: ["":""], modelType: [UserData].self) {[weak self] success, listUsers, error in
             if(success) {
                 if let listUsers = listUsers, let user = listUsers.randomElement(){
+                    LocalStorage.sharred.saveUser(userData: user)
                     self?.userRepositoryDelegate?.onSuccess(userData: user)
                     return
                 }

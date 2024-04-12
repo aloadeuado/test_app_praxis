@@ -21,18 +21,16 @@
 			</array>
 		</dict>
 	</dict>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>com.googleusercontent.apps.246148386185-f7rivccv9ovsvfjab6e40sq100sifvob</string>
-            </array>
-        </dict>
-    </array>
-    <key>URL_DETAIL_RECIPES</key>
-    <string>$(URL_DETAIL_RECIPES)</string>
-    <key>URL_LIST_RECIPES</key>
-    <string>$(URL_LIST_RECIPES)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.246148386185-f7rivccv9ovsvfjab6e40sq100sifvob</string>
+			</array>
+		</dict>
+	</array>
+	<key>BASE_UREL</key>
+	<string>$(BASE_UREL)</string>
 </dict>
 </plist>

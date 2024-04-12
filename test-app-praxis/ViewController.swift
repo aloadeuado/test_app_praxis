@@ -32,9 +32,14 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+            guard let self = self else {return}
             if let user = user {
                 // El usuario está autenticado, `user` es un objeto `User` no `nil`
-                self?.userRepository?.getUser(email: user.email ?? "")
+                if let userData = LocalStorage.sharred.getUser() {
+                    show(controller: self, userData: userData)
+                    return
+                }
+                self.userRepository?.getUser(email: user.email ?? "")
             } else {
                 // No hay usuario autenticado
                 print("No hay usuario autenticado.")
@@ -74,12 +79,23 @@ class ViewController: UIViewController {
 
 extension ViewController: UserRepositoryDelegate {
     func onSuccess(userData: UserData) {
-        <#code#>
+        show(controller: self, userData: userData)
     }
     
     func onError(error: String) {
-        <#code#>
+        
     }
     
     
+}
+
+//MARK: -presents
+
+extension ViewController {
+    func show(controller: UIViewController, userData: UserData) {
+        let listPostsViewController = ListPostsViewController(nibName: "ListPostsViewController", bundle: nil)
+        listPostsViewController.userData = userData
+        listPostsViewController.modalPresentationStyle = .overFullScreen
+        controller.present(listPostsViewController, animated: true)
+    }
 }
