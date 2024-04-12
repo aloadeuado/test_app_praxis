@@ -13,7 +13,7 @@ class ListPostsRouter: ListPostsRouterInput {
         let createPostsViewController = CreatePostsViewController(nibName: "CreatePostsViewController", bundle: nil)
         createPostsViewController.userData = userData
         
-        viewController.navigationController?.pushViewController(createPostsViewController, animated: true)
+        viewController.present(createPostsViewController, animated: true)
         
         
     }

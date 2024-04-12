@@ -15,4 +15,5 @@ protocol ListPostsViewOutput {
 
     func viewIsReady()
     func getPostByUser(userId: String)
+    func goToCreatePost()
 }

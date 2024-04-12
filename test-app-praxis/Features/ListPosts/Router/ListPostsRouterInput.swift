@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ListPostsRouterInput {
-
+    func goToCreatePost(userData: UserData)
 }

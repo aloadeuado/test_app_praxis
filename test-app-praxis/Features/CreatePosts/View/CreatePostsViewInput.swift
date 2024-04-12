@@ -12,6 +12,7 @@ protocol CreatePostsViewInput: class {
         @author Pedro Alonso Daza B
         Setup initial state of the view
     */
-
+    func onGetPost(postData: PostData)
+    func showError(error: String)
     func setupInitialState()
 }

@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatePostsViewController" customModule="test_app_praxis" customModuleProvider="target">
             <connections>
+                <outlet property="msgLabel" destination="4GL-V4-478" id="SFx-o8-vBa"/>
+                <outlet property="titleLabel" destination="yMb-T8-IhC" id="4cy-nF-0iT"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cwP-ht-cP0"/>
             </connections>
         </placeholder>
@@ -67,6 +69,9 @@ Ingresa los siguientes datos</string>
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onSendDataPressedWithButton:" destination="-1" eventType="touchUpInside" id="C12-9J-omp"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -96,6 +101,11 @@ Ingresa los siguientes datos</string>
             </connections>
         </customObject>
     </objects>
+    <designables>
+        <designable name="i5a-tb-oTH">
+            <size key="intrinsicContentSize" width="108.66666666666667" height="34.333333333333336"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

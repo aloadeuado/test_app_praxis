@@ -9,5 +9,6 @@
 import Foundation
 
 protocol CreatePostsInteractorInput {
-
+    
+    func postPost(userId: Int, titleText: String, msgText: String)
 }

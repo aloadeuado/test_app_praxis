@@ -9,5 +9,7 @@
 import Foundation
 
 protocol CreatePostsInteractorOutput: class {
-
+    
+    func onSuccess(postData: PostData)
+    func onError(error: String)
 }

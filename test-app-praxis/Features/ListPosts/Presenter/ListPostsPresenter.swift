@@ -6,12 +6,12 @@
 //  Copyright © 2024 MnC. All rights reserved.
 //
 
-class ListPostsPresenter: ListPostsModuleInput, ListPostsViewOutput {
+class ListPostsPresenter: ListPostsModuleInput {
 
     weak var view: ListPostsViewInput!
     var interactor: ListPostsInteractorInput!
     var router: ListPostsRouterInput!
-    var userData: UserData?
+
     func viewIsReady() {
 
     }
@@ -32,6 +32,16 @@ extension ListPostsPresenter: ListPostsInteractorOutput {
     func onError(error: String) {
         view.showError(error: error)
     }
+}
+
+
+//MARK: -ListPostsViewOutput
+
+extension ListPostsPresenter: ListPostsViewOutput {
     
-    
+    func goToCreatePost() {
+        if let userData = LocalStorage.sharred.getUser() {
+            router.goToCreatePost(userData: userData)
+        }
+    }
 }

@@ -35,7 +35,7 @@ class ApiServices {
         let task = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             let response = (response as? HTTPURLResponse)
             print("[CODE STATUS=>]: \(response)")
-            if response?.statusCode == 200 {
+            if response?.statusCode == 200 || response?.statusCode == 201 {
                 if let safeData = data {
                     let decoder = JSONDecoder()
                     do {

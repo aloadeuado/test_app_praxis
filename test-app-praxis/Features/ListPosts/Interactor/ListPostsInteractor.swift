@@ -22,6 +22,10 @@ class ListPostsInteractor: ListPostsInteractorInput {
 //MARK: -ListPostsInteractor
 
 extension ListPostsInteractor: PostRepositoryDelegate {
+    func onSuccess(postData: PostData) {
+        
+    }
+    
     func onSuccess(listPostData: [PostData]) {
         output.onSuccess(listPostData: listPostData)
     }

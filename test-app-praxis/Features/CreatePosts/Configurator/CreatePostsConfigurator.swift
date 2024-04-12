@@ -20,7 +20,8 @@ class CreatePostsModuleConfigurator {
     private func configure(viewController: CreatePostsViewController) {
 
         let router = CreatePostsRouter()
-
+        router.viewController = viewController
+        
         let presenter = CreatePostsPresenter()
         presenter.view = viewController
         presenter.router = router

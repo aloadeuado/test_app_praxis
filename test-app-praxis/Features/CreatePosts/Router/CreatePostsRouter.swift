@@ -6,6 +6,12 @@
 //  Copyright © 2024 MnC. All rights reserved.
 //
 
-class CreatePostsRouter: CreatePostsRouterInput {
+import UIKit
 
+class CreatePostsRouter: CreatePostsRouterInput {
+    var viewController: UIViewController!
+    
+    func onBack(){
+        viewController.dismiss(animated: true)
+    }
 }

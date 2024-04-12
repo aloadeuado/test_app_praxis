@@ -8,6 +8,7 @@
 
 import UIKit
 import Toast
+
 class ListPostsViewController: UIViewController {
 
     var output: ListPostsViewOutput!
@@ -19,6 +20,7 @@ class ListPostsViewController: UIViewController {
     @IBOutlet weak var noDataImageView: UIImageView!
     
     var listPostData = [PostData]()
+    var isLoadingData = false
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,10 @@ class ListPostsViewController: UIViewController {
 
     func setData() {
         tableView.register(ListPostsTableViewCell.nib(), forCellReuseIdentifier: ListPostsTableViewCell.identificador)
+        loadData()
+    }
+    
+    func loadData() {
         if let userData = LocalStorage().getUser() {
             nameLabel.text = userData.name
             emailLabel.text = userData.email
@@ -36,7 +42,7 @@ class ListPostsViewController: UIViewController {
     }
     
     @IBAction func addPostPressed(button: UIButton) {
-        
+        output.goToCreatePost()
     }
     // MARK: ListPostsViewInput
     
@@ -50,6 +56,7 @@ extension ListPostsViewController: ListPostsViewInput {
     }
     
     func onGetListPost(listPostData: [PostData]){
+        isLoadingData = false
         if listPostData.isEmpty {
             noDataImageView.isHidden = false
             return
@@ -60,6 +67,7 @@ extension ListPostsViewController: ListPostsViewInput {
     }
     
     func showError(error: String) {
+        isLoadingData = false
         self.view.makeToast(error)
     }
     
@@ -97,5 +105,22 @@ extension ListPostsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        let tableViewContentSize = scrollView.contentSize.height
+        let scrollViewHeight = scrollView.frame.size.height
+
+        // Comprueba si el usuario ha llegado al final de la tabla
+        if position > (tableViewContentSize - scrollViewHeight - 100) {
+            // Evitar múltiples cargas
+            if !isLoadingData {
+                isLoadingData = true // Marca que estamos cargando datos
+
+                // Cargar más datos
+                loadData()
+            }
+        }
     }
 }

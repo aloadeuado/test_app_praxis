@@ -30,3 +30,7 @@ func getListPhotosByUsers(userId: String) -> String {
 func getListPostsByUsers(userId: String) -> String {
     return getStringOfInfo(key: "BASE_UREL") + "/posts?userId=" + userId
 }
+
+func postAddPosts() -> String {
+    return getStringOfInfo(key: "BASE_UREL") + "/posts"
+}

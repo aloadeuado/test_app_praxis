@@ -14,4 +14,6 @@ protocol CreatePostsViewOutput {
     */
     func setUserData(userData: UserData)
     func viewIsReady()
+    func onBack()
+    func validateAndSendData(titleText: String, msgText: String)
 }

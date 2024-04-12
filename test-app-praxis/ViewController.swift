@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import Toast
 
 class ViewController: UIViewController {
 
@@ -83,7 +84,7 @@ extension ViewController: UserRepositoryDelegate {
     }
     
     func onError(error: String) {
-        
+        self.view.makeToast(error)
     }
     
     
@@ -96,6 +97,6 @@ extension ViewController {
         let listPostsViewController = ListPostsViewController(nibName: "ListPostsViewController", bundle: nil)
         listPostsViewController.userData = userData
         listPostsViewController.modalPresentationStyle = .overFullScreen
-        controller.present(listPostsViewController, animated: true)
+        controller.navigationController?.present(listPostsViewController, animated: true)
     }
 }
