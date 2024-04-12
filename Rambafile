@@ -1,0 +1,29 @@
+### Headers settings
+company: MnC
+
+### Xcode project settings
+project_name: test_app_praxis
+xcodeproj_path: test-app-praxis.xcodeproj
+
+# Needed for @testable import in tests. Should be the same as "project_target"
+product_module_name: test-app-praxis
+
+### Code generation settings section
+# The main project target name
+project_target: test-app-praxis
+
+# The file path for new modules
+project_file_path: /test-app-praxis/Features/
+
+### Tests generation settings section
+# The tests target name
+test_target: test-app-praxisTests
+
+# The file path for new tests
+test_file_path: /test-app-praxisTests/Features/
+
+### Templates
+templates:
+- {name: rviper_controller}
+- {name: mvvm_controller}
+- {name: swifty_viper}

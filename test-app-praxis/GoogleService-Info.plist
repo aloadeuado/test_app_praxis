@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>246148386185-f7rivccv9ovsvfjab6e40sq100sifvob.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.246148386185-f7rivccv9ovsvfjab6e40sq100sifvob</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDI32oY95nQDpyRK4SJzirM2XjAoqkhQtI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>246148386185</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>test.praxis.test-app-praxis</string>
+	<key>PROJECT_ID</key>
+	<string>testpraxis-4d606</string>
+	<key>STORAGE_BUCKET</key>
+	<string>testpraxis-4d606.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:246148386185:ios:697afbeb6a04ef88cde558</string>
+</dict>
+</plist>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListPostsViewController" customModule="test_app_praxis" customModuleProvider="target">
+            <connections>
+                <outlet property="emailLabel" destination="DjI-Xa-Hkq" id="9FI-DK-Da0"/>
+                <outlet property="nameLabel" destination="DzV-Oq-GZo" id="m2Q-0b-rON"/>
+                <outlet property="noDataImageView" destination="8E8-9f-lKM" id="1YB-yp-YiL"/>
+                <outlet property="tableView" destination="z25-Y7-yLj" id="fJ0-Nk-L8I"/>
+                <outlet property="view" destination="iN0-l3-epB" id="J3L-4B-5cb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzV-Oq-GZo">
+                    <rect key="frame" x="30" y="79" width="333" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjI-Xa-Hkq">
+                    <rect key="frame" x="30" y="105" width="333" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2p-gB-3g9">
+                    <rect key="frame" x="30" y="146" width="333" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z25-Y7-yLj">
+                    <rect key="frame" x="0.0" y="180" width="393" height="560"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dco-Hj-hQZ"/>
+                        <outlet property="delegate" destination="-1" id="fwY-Fq-CyY"/>
+                    </connections>
+                </tableView>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodataImage" translatesAutoresizingMaskIntoConstraints="NO" id="8E8-9f-lKM">
+                    <rect key="frame" x="0.0" y="136" width="393" height="604"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O97-p0-1k4">
+                    <rect key="frame" x="30" y="750" width="333" height="48"/>
+                    <color key="backgroundColor" systemColor="linkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="BkG-Be-fVg"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Agregar Producto"/>
+                    <connections>
+                        <action selector="addPostPressedWithButton:" destination="-1" eventType="touchUpInside" id="Vrf-5N-sbz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="z25-Y7-yLj" firstAttribute="top" secondItem="K2p-gB-3g9" secondAttribute="bottom" constant="13" id="4g6-tX-XYy"/>
+                <constraint firstItem="DjI-Xa-Hkq" firstAttribute="leading" secondItem="DzV-Oq-GZo" secondAttribute="leading" id="7cT-tY-LXW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z25-Y7-yLj" secondAttribute="trailing" id="CZC-PN-hCR"/>
+                <constraint firstItem="z25-Y7-yLj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="D9K-yt-MJN"/>
+                <constraint firstItem="O97-p0-1k4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="EKC-vl-b9v"/>
+                <constraint firstItem="DzV-Oq-GZo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="Gea-pD-hcK"/>
+                <constraint firstItem="K2p-gB-3g9" firstAttribute="trailing" secondItem="DjI-Xa-Hkq" secondAttribute="trailing" id="LTT-zk-1lb"/>
+                <constraint firstItem="DzV-Oq-GZo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="PEJ-JX-kvV"/>
+                <constraint firstItem="8E8-9f-lKM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="77" id="UF5-ik-x3L"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8E8-9f-lKM" secondAttribute="trailing" id="YGC-Lh-sgs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DzV-Oq-GZo" secondAttribute="trailing" constant="30" id="aKJ-B3-zcX"/>
+                <constraint firstItem="K2p-gB-3g9" firstAttribute="leading" secondItem="DjI-Xa-Hkq" secondAttribute="leading" id="azG-Hg-Zir"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8E8-9f-lKM" secondAttribute="bottom" constant="78" id="bJI-mO-4Sk"/>
+                <constraint firstItem="DjI-Xa-Hkq" firstAttribute="trailing" secondItem="DzV-Oq-GZo" secondAttribute="trailing" id="eWi-bd-jq1"/>
+                <constraint firstItem="K2p-gB-3g9" firstAttribute="top" secondItem="DjI-Xa-Hkq" secondAttribute="bottom" constant="20" id="fg1-hO-k5o"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="O97-p0-1k4" secondAttribute="bottom" constant="20" id="gyS-yM-oT7"/>
+                <constraint firstItem="O97-p0-1k4" firstAttribute="top" secondItem="z25-Y7-yLj" secondAttribute="bottom" constant="10" id="m6W-gd-8rO"/>
+                <constraint firstItem="DjI-Xa-Hkq" firstAttribute="top" secondItem="DzV-Oq-GZo" secondAttribute="bottom" constant="5" id="o3c-LM-1oc"/>
+                <constraint firstItem="8E8-9f-lKM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ttF-Tr-v3C"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="O97-p0-1k4" secondAttribute="trailing" constant="30" id="wEG-Jk-cyv"/>
+            </constraints>
+            <point key="canvasLocation" x="35.877862595419849" y="19.718309859154932"/>
+        </view>
+        <customObject id="zFh-g9-uwt" customClass="ListPostsModuleInitializer" customModule="test_app_praxis" customModuleProvider="target">
+            <connections>
+                <outlet property="listpostsViewController" destination="-1" id="YKw-vt-9fB"/>
+            </connections>
+        </customObject>
+    </objects>
+    <resources>
+        <image name="nodataImage" width="266.66665649414062" height="200"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
