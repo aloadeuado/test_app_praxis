@@ -7,11 +7,12 @@
 
 import UIKit
 
-class ListPostsTableViewCell: UITableViewCell {
+class ListPostsTableViewCell: UITableViewCell, SkeletonDisplayable {
     
     static let  identificador = "ListPostsTableViewCell"
     static func nib() -> UINib  {   return UINib(nibName: "ListPostsTableViewCell", bundle: Bundle(for: ListPostsTableViewCell.self))  }
     
+    @IBOutlet weak var generalView: CustomView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var photoImageView: CustomImageView!
@@ -36,4 +37,17 @@ class ListPostsTableViewCell: UITableViewCell {
         messageLabel.text = postData.body ?? ""
     }
     
+    func showSkeletor() {
+        /*generalView.subviews.forEach { view in
+            view.showAnimatedGradientSkeleton()
+        }*/
+        self.showSkeleton()
+    }
+    
+    func hideSkeletor() {
+        /*generalView.subviews.forEach { view in
+            view.hideSkeleton(reloadingData: true)
+        }*/
+        self.hideSkeleton()
+    }
 }

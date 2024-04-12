@@ -21,6 +21,7 @@ class ListPostsViewController: UIViewController {
     
     var listPostData = [PostData]()
     var isLoadingData = false
+    
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ListPostsViewController: UIViewController {
     }
 
     func setData() {
+        tableView.delegate = self
         tableView.register(ListPostsTableViewCell.nib(), forCellReuseIdentifier: ListPostsTableViewCell.identificador)
         loadData()
     }
@@ -37,6 +39,8 @@ class ListPostsViewController: UIViewController {
         if let userData = LocalStorage().getUser() {
             nameLabel.text = userData.name
             emailLabel.text = userData.email
+            isLoadingData = true
+            tableView.reloadData()
             output.getPostByUser(userId: String(userData.id ?? 0))
         }
     }
@@ -80,13 +84,22 @@ extension ListPostsViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoadingData {
+            return 3
+        }
         return listPostData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isLoadingData {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ListPostsTableViewCell.identificador, for: indexPath) as? ListPostsTableViewCell {
+                cell.showSkeletor()
+                return cell
+            }
+        }
         if let cell = tableView.dequeueReusableCell(withIdentifier: ListPostsTableViewCell.identificador, for: indexPath) as? ListPostsTableViewCell {
             cell.setData(postData: listPostData[indexPath.row])
-            
+            cell.hideSkeletor()
             return cell
         }
         
@@ -113,7 +126,8 @@ extension ListPostsViewController : UITableViewDelegate {
         let scrollViewHeight = scrollView.frame.size.height
 
         // Comprueba si el usuario ha llegado al final de la tabla
-        if position > (tableViewContentSize - scrollViewHeight - 100) {
+        print("position: \(position)")
+        if position < -10 {
             // Evitar múltiples cargas
             if !isLoadingData {
                 isLoadingData = true // Marca que estamos cargando datos

@@ -80,6 +80,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="generalView" destination="m3u-yZ-bTG" id="nbN-Va-yVJ"/>
                 <outlet property="messageLabel" destination="Bgg-f9-r9X" id="neP-HL-U1p"/>
                 <outlet property="photoImageView" destination="Tyf-Vv-uRH" id="OlE-Fv-7Wu"/>
                 <outlet property="titleLabel" destination="Fov-6v-iDI" id="0sG-T5-7vo"/>
